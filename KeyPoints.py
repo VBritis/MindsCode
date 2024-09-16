@@ -3,6 +3,10 @@ import os
 import mediapipe as mp
 import numpy as np
 
+
+
+
+
 def load_frames(folder_path):
     frames = []
     for filename in sorted(os.listdir(folder_path)):
@@ -60,7 +64,14 @@ def draw_keypoints(frame,results,file_path):
 
         for hand_landmarks in results.multi_hand_landmarks:
             mp_drawing.draw_landmarks(frame, hand_landmarks, mp_hands.HAND_CONNECTIONS)
-            
+
+
+def clean_file(folder_path):
+    frames = load_frames(folder_path)
+    for frame, file_path in frames:
+        if "_INVALIDO" in os.path.splitext(file_path)[0]:
+            os.remove(file_path)
+                
            
             
 
@@ -68,24 +79,30 @@ def draw_keypoints(frame,results,file_path):
         
 def main(folder_path):
     frames = load_frames(folder_path)
-    
     for frame, file_path in frames:
         results = process_frames(frame)
         draw_keypoints(frame, results, file_path)
-        
+            
         cv2.imshow("MediaPipe Hand", frame)
-        
+            
         if cv2.waitKey(1) & 0xFF == ord('q'):
             break
 
     cv2.destroyAllWindows()
+  
 
 
 
 
 
-    
-main("/home/britis/Minds/Sinalizador03/Frames/Sapo_frames/18SapoSinalizador03-1")
+
+
+if __name__ == "__main__":    
+    x_input = input("Processar frames: 1 \n Limpar pastas: 2")
+    if x_input == "1":
+        main("/home/britis/Minds/Sinalizador03/Frames/Sapo_frames/18SapoSinalizador03-2")
+    if x_input == "2":    
+        clean_file("/home/britis/Minds/Sinalizador03/Frames/Sapo_frames/18SapoSinalizador03-2")
 
 
 
