@@ -1,0 +1,11 @@
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1726597709.894056   17971 gl_context_egl.cc:85] Successfully initialized EGL. Major : 1 Minor: 5
+I0000 00:00:1726597709.896183   18003 gl_context.cc:357] GL version: 3.2 (OpenGL ES 3.2 Mesa 23.2.1-1ubuntu3.1~22.04.2), renderer: NV117
+Digite o caminho da pasta a ser processadaINFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+W0000 00:00:1726597709.927524   18001 inference_feedback_manager.cc:114] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
+W0000 00:00:1726597709.948698   17997 inference_feedback_manager.cc:114] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
+Por favor, digite uma opção:
+Processar frames: 1 
+Limpar pastas: 2
+Entrada do usuário: s
+Entrada inválida. Por favor, digite 1 para processar frames ou 2 para limpar pastas.
