@@ -29,23 +29,11 @@ mpDraw = mp.solutions.drawing_utils
 
 
 
-def draw_keypoints(frame,results,file_path):
+def draw_keypoints(frame,results):
         if results.pose_landmarks:
-           #num_axis = len(results.pose_world_landmarks)
-
-            #cv2.putText(frame, f'Numero de pontos: {num_axis}', (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2, cv2.LINE_AA)
-
-
-            # Desenhar as landmarks das mãos detectadas
-            #if(num_axis != 2):
-             #       new_file_name = os.path.splitext(file_path)[0] + "_INVALIDO" + os.path.splitext(file_path)[1]
-              #      cv2.putText(frame, f'Numero de maos: {num_hands}, INVALIDO', (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2, cv2.LINE_AA)
-            #else:
-             #       new_file_name = os.path.splitext(file_path)[0] + "_VALIDO" + os.path.splitext(file_path)[1]
-              #      cv2.putText(frame,"Duas maos detectadas, VALIDO", (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2, cv2.LINE_AA)
-            #if not (new_file_name == file_path or "_VALIDO" in os.path.splitext(file_path)[0] or "_INVALIDO" in os.path.splitext(file_path)[0]):
-             #   os.rename(file_path, new_file_name)
                 mpDraw.draw_landmarks(frame, results.pose_landmarks , mpPose.POSE_CONNECTIONS)
+                for id, lm in enumerate(results.pose_landmarks.landmark):
+                    print(id, lm)
 
 
 
@@ -67,7 +55,7 @@ def main(folder_path):
     frames = load_frames(folder_path)
     for frame, file_path in frames:
         results = process_frames(frame)
-        draw_keypoints(frame, results, file_path)
+        draw_keypoints(frame, results)
             
         cv2.imshow("MediaPipe Hand", frame)
             
@@ -79,4 +67,4 @@ def main(folder_path):
 
 
 
-main("/home/britis/Minds/Sinalizador03/Frames/Medo_frames/16MedoSinalizador03-1")
+main("/home/britis/Minds/Sinalizador03/Frames/Sapo_frames/18SapoSinalizador03-4")
