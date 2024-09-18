@@ -52,7 +52,7 @@ class HandsMind():
                         # Desenhar as landmarks das mãos detectadas
                         if(num_hands < hands or num_hands > 2 ):
                                 new_file_name = os.path.splitext(file_path)[0] + "_INVALIDO" + os.path.splitext(file_path)[1]
-                                cv2.putText(frame, f'Numero de maos{new_file_name}: {num_hands}, INVALIDO', (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2, cv2.LINE_AA)
+                                cv2.putText(frame, f'Numero de maos: {num_hands}, INVALIDO', (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2, cv2.LINE_AA)
                         else:
                                 new_file_name = os.path.splitext(file_path)[0] + "_VALIDO" + os.path.splitext(file_path)[1]
                                 cv2.putText(frame, f'Numero de maos: {num_hands}, VALIDO', (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2, cv2.LINE_AA)
@@ -98,6 +98,6 @@ class HandsMind():
 import time
 
 if __name__ == "__main__":
-        path = "/home/britis/Minds/Sinalizador03/Frames/Sapo_frames/18SapoSinalizador03-4"
+        path = "/home/britis/Minds/Sinalizador03/Frames/Sapo_frames/18SapoSinalizador03-2"
         apk = HandsMind()
         apk.run(path,clean=True,hands=2)
