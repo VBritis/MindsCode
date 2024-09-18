@@ -50,7 +50,7 @@ def draw_keypoints(frame,results,file_path):
 
 
 
-
+def process_frames(frame):
         if len(frame.shape) != 3 or frame.shape[2] != 3:
             raise ValueError("O frame não possui 3 canais. Verifique o formato da imagem.")
         
