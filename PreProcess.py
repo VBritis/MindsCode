@@ -9,7 +9,7 @@ def process_videos(input_folder, output_folder):
     #Input_folder and output are the directories that the archives are storaged and the directory that will be storaged
 
 
-    # Verifify if the output directory exists, create one in input path if not exist
+    # Verify if the output directory exists, create one in input path if not exist
     if not os.path.exists(output_folder):
         os.makedirs(output_folder)
 
