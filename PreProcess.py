@@ -1,7 +1,21 @@
 import cv2
 import os
 
-
+class load_frames:
+    def load_frames(folder_path):
+                frames = []
+                for filename in sorted(os.listdir(folder_path)):
+                    if filename.endswith('.jpg') or filename.endswith('.png'):
+                        img_path = os.path.join(folder_path,filename)
+                        img = cv2.imread(img_path)
+                        if img is not None:
+                            frames.append((img,img_path))
+                
+                if frames:
+                    print(f"Total frames loaded: {len(frames)}")
+                else:
+                    print("No frames loaded.")
+                return frames
 
 #Process videos function
 def process_videos(input_folder, output_folder): 

@@ -73,7 +73,7 @@ class HandsMind():
 
 
             
-    def run(self,folder_path, clean = True, hands=2):
+    def run(self,folder_path, clean = False, hands=2):
         frames = self.load_frames(folder_path)
         for frame, file_path in frames:
             self.findHands(frame,file_path,hands)
