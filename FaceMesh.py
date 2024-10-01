@@ -62,7 +62,7 @@ def main(folder_path):
             
         cv2.imshow("MediaPipe Hand", processed)
             
-        if cv2.waitKey(1) & 0xFF == ord('q'):
+        if cv2.waitKey(0) & 0xFF == ord('q'):
             break
 
     cv2.destroyAllWindows()
